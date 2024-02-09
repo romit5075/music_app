@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header class="segment" collapse="condense">
+    <ion-segment value="custom">
+      <ion-segment-button value="custom">
+        <ion-label>Music</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="segment">
+        <ion-label>Podcast</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="buttons">
+        <ion-label>JioTunes</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <ion-icon class="setting-icon" name="settings-outline"></ion-icon>
+  </ion-header>
+
+  <!-- Atrits -->
+  <h1 class="title">Recommended Artist Stations</h1>
+  <div class="scroll-container">
+    <div class="artist-card" *ngFor="let item of items">
+      <ion-card>
+        <img class="artist-img" [src]="item.imageUrl" alt="Image">
+        <ion-card-header>
+          <ion-card-subtitle class="subtitle-custom">{{ item.description }}</ion-card-subtitle>
+          <ion-card-title class="title-custom">{{ item.title }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+    <!-- Top Charts -->
+    <div class="viewAll">
+      <h1 class="title">Top Charts</h1>
+      <a routerLink="viewall"> View All<ion-icon name="chevron-forward-outline"></ion-icon></a>
+    </div>
+
+    <div class="scroll-container">
+      <div class="card" *ngFor="let item of items;let i = index;" (click)="openItemDetails(item.id)">
+        <ion-card *ngIf="i < 5">
+          <img [src]="item.imageUrl" alt="Image">
+          <ion-card-header>
+            <ion-card-subtitle>{{ item.description }}</ion-card-subtitle>
+            <ion-card-title>{{ item.title }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </div>
+    </div>
+
+  <!-- best of -->
+  <h1 class="title">Best of</h1>
+  <div class="scroll-container">
+    <div class="card" *ngFor="let item of items">
+      <ion-card>
+        <img [src]="item.imageUrl" alt="Image">
+        <ion-card-header>
+          <ion-card-subtitle>{{ item.description }}</ion-card-subtitle>
+          <ion-card-title>{{ item.title }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+
+  <!-- New Releases Pop -Hindi -->
+
+  <h1 class="title">New Releases Pop -Hindi</h1>
+  <div class="scroll-container">
+    <div class="card" *ngFor="let item of items">
+      <ion-card>
+        <img [src]="item.imageUrl" alt="Image">
+        <ion-card-header>
+          <ion-card-subtitle>{{ item.description }}</ion-card-subtitle>
+          <ion-card-title>{{ item.title }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>

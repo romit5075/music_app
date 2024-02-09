@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item lines="none" *ngFor="let item of appData.music">
+      <div class="container">
+        <div class="description">
+          <ion-label class="music-title">{{item.title}}</ion-label>
+          <ion-label class="music-label">
+            {{ item.description }}
+          </ion-label>
+        </div>
+        <div class="button-icon">
+          <ion-button fill="clear" size="small" (click)="OpenSingleScreen(item.mid)"> <ion-icon
+              name="musical-note"></ion-icon></ion-button>
+          <ion-button fill="clear" size="small"> <ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

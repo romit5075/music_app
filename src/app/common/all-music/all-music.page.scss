@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  // align-items: center;
+  width: 100%;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  width: 18rem;
+  padding-bottom: 1rem;
+  width: 80%;
+}
+
+.button-icon {
+  display: flex;
+  width: 20%;
+  // padding: 1rem 0 0 0;
+
+  ion-button {
+
+    --border-radius: 0;
+    --box-shadow: none;
+    --color: #807c7c;
+    --padding-end: 0;
+    --padding-start: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    --min-width: 0;
+    --min-height: 0;
+    --background-activated: #f4f4f4;
+    --background-focused: #f4f4f4;
+    --background-hover: #f4f4f4;
+    margin: 0;
+  }
+}
+
+
+.button-icon ion-icon {
+  font-size: 1.9rem;
+  padding: 0 1rem 0 0rem;
+}
+
+
+.music-title {
+  font-size: 1.2rem;
+  padding: .5rem .5rem .2rem .5rem;
+}
+
+.music-label {
+  font-size: .9rem;
+  padding: .2rem .5rem .5rem .5rem;
+}
+
+ion-item {
+  background-color: aliceblue;
+}
