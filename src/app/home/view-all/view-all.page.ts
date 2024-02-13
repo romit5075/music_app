@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { appData } from '../../API/homeMusic';
 
 @Component({
   selector: 'app-view-all',
@@ -8,73 +10,13 @@ import { Router } from '@angular/router';
 })
 export class ViewAllPage implements OnInit {
 
-
   items: any[];
 
   constructor(private router: Router) {
-    this.items = [
-      {
-        imageUrl: './assets/Images/4.jpeg',
-        title: 'Item 1',
-        description: 'Description for Item 1',
-      },
-      {
-        imageUrl: './assets/Images/2.jpeg',
-        title: 'Item 2',
-        description: 'Description for Item 2',
-      },
-      {
-        imageUrl: './assets/Images/6.jpeg',
-        title: 'Item 1',
-        description: 'Description for Item 1',
-      },
-      {
-        imageUrl: './assets/Images/2.jpeg',
-        title: 'Item 2',
-        description: 'Description for Item 2',
-      },
-      {
-        imageUrl: './assets/Images/4.jpeg',
-        title: 'Item 1',
-        description: 'Description for Item 1',
-      },
-      {
-        imageUrl: './assets/Images/2.jpeg',
-        title: 'Item 2',
-        description: 'Description for Item 2',
-      },
-      {
-        imageUrl: './assets/Images/6.jpeg',
-        title: 'Item 1',
-        description: 'Description for Item 1',
-      },
-      {
-        imageUrl: './assets/Images/2.jpeg',
-        title: 'Item 2',
-        description: 'Description for Item 2',
-      },
-      {
-        imageUrl: './assets/Images/4.jpeg',
-        title: 'Item 1',
-        description: 'Description for Item 1',
-      },
-      {
-        imageUrl: './assets/Images/2.jpeg',
-        title: 'Item 2',
-        description: 'Description for Item 2',
-      },
-      {
-        imageUrl: './assets/Images/6.jpeg',
-        title: 'Item 1',
-        description: 'Description for Item 1',
-      },
-      {
-        imageUrl: './assets/Images/2.jpeg',
-        title: 'Item 2',
-        description: 'Description for Item 2',
-      },
-    ];
+    this.items = appData
+
   }
+
   ngOnInit(): void {
     console.log('ViewAllPage');
   }

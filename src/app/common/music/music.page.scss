@@ -1,0 +1,124 @@
+// ion-content {
+//   padding: 1rem 1rem 0 1rem;
+// }
+
+// ion-header {
+//   padding: 0rem 1rem 0 1rem;
+// }
+
+.main-image {
+  width: 100%;
+  height: 25rem;
+  object-fit: cover;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.music-play {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2.1rem;
+}
+
+.music-subtitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem 0 0;
+
+}
+
+.music-title {
+  ion-card-header {
+    ion-card-subtitle {
+      font-size: 1rem;
+    }
+
+    ion-card-title {
+      font-size: 2rem;
+    }
+  }
+}
+
+
+.progress {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem 0 1rem;
+}
+
+.time {
+  padding: .3rem 1rem 0.3rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.play-model {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pay-icon {
+  ion-button {
+    --background: none;
+    --border-radius: 10px;
+    --box-shadow: none;
+    --color: #000;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    --padding-top: 1rem;
+    --padding-bottom: 1rem;
+    --background-activated: none
+  }
+}
+
+.wishlist {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1rem 0 1rem;
+
+  ion-icon {
+    font-size: 2rem;
+  }
+}
+
+.pay-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1rem 0 1rem;
+
+  ion-icon {
+    font-size: 2.5rem;
+  }
+
+  .play-circle {
+    font-size: 6rem;
+    color: rgb(213, 213, 213);
+  }
+}
+
+.another-music {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1rem 0 1rem;
+
+  ion-icon {
+    font-size: 2rem;
+  }
+}

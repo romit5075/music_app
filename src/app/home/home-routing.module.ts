@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'allMusic/:id',
     loadChildren: () => import('../common/all-music/all-music.module').then(m => m.AllMusicPageModule)
+  },
+  {
+    path: 'music/:id',
+    loadChildren: () => import('../common/music/music.module').then(m => m.MusicPageModule)
   }
 ];
 

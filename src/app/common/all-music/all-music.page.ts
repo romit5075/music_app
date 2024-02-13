@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { appData } from 'src/app/API/homeMusic';
 
 @Component({
@@ -10,20 +11,23 @@ import { appData } from 'src/app/API/homeMusic';
 export class AllMusicPage implements OnInit {
 
   appData: any = appData;
+  originMusic: any;
 
   OpenSingleScreen(id: number) {
-    console.log(id)
-    this.router.navigate(['music/', id]);
+    this.navCtrl.navigateForward(['home/music/', id], {
+      queryParams: { musicDataKey: JSON.stringify(this.originMusic) }
+    });
   }
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private navCtrl: NavController, private route: ActivatedRoute) { }
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    
+
     this.appData = this.appData.find((item: any) => {
       return item.id == id;
     });
-    console.log(this.appData.music);
+    this.originMusic = this.appData.music
+    // console.log(this.originMusic)
   }
 }

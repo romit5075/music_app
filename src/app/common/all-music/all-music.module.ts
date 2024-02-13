@@ -18,9 +18,10 @@ import { MusicPage } from '../music/music.page';
           component: AllMusicPage
         },
         {
-          path: 'music/:id',
+          path: 'home/music/:id',
           component: MusicPage
-        }
+        },
+        { path: '**', redirectTo: 'home' }
       ]
     )
   ],

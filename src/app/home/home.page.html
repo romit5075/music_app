@@ -34,23 +34,23 @@
     </div>
   </div>
 
-    <!-- Top Charts -->
-    <div class="viewAll">
-      <h1 class="title">Top Charts</h1>
-      <a routerLink="viewall"> View All<ion-icon name="chevron-forward-outline"></ion-icon></a>
-    </div>
+  <!-- Top Charts -->
+  <div class="viewAll">
+    <h1 class="title">Top Charts</h1>
+    <a routerLink="viewall"> View All<ion-icon name="chevron-forward-outline"></ion-icon></a>
+  </div>
 
-    <div class="scroll-container">
-      <div class="card" *ngFor="let item of items;let i = index;" (click)="openItemDetails(item.id)">
-        <ion-card *ngIf="i < 5">
-          <img [src]="item.imageUrl" alt="Image">
-          <ion-card-header>
-            <ion-card-subtitle>{{ item.description }}</ion-card-subtitle>
-            <ion-card-title>{{ item.title }}</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </div>
+  <div class="scroll-container">
+    <div class="card" *ngFor="let item of items;let i = index;" (click)="openItemDetails(item.id)">
+      <ion-card *ngIf="i < 5">
+        <img [src]="item.imageUrl" alt="Image">
+        <ion-card-header>
+          <ion-card-subtitle>{{ item.description }}</ion-card-subtitle>
+          <ion-card-title>{{ item.title }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
     </div>
+  </div>
 
   <!-- best of -->
   <h1 class="title">Best of</h1>

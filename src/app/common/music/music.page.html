@@ -1,13 +1,78 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>music</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Single Music</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header *ngFor="let item of singleMusic">
     <ion-toolbar>
-      <ion-title size="large">music</ion-title>
+      <!-- Left side: Close button -->
+      <ion-buttons slot="start">
+        <ion-button (click)="closePage()">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <!-- Right side: Menu button -->
+      <ion-buttons slot="end">
+        <ion-button (click)="openMenu()">
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
+
+    <!-- image -->
+    <div class="main-image">
+      <ion-img src="{{item.image}}" alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
+    </div>
+    <div class="music-data">
+      <ion-card-header>
+        <ion-card-subtitle>{{item.description}}</ion-card-subtitle>
+        <ion-card-title>{{item.title}}</ion-card-title>
+      </ion-card-header>
+    </div>
+    <div class="music-play">
+      <div class="music-title">
+        <ion-card-header>
+          <ion-card-subtitle>{{item.description}}</ion-card-subtitle>
+          <ion-card-title>{{item.title}}</ion-card-title>
+        </ion-card-header>
+      </div>
+      <div class="music-subtitle">
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="progress">
+      <ion-progress-bar [value]="progress"></ion-progress-bar>
+    </div>
+    <div class="time">
+      <ion-label>0:00</ion-label>
+      <ion-label>3:00</ion-label>
+    </div>
+    <div class="play-model">
+      <div class="wishlist">
+        <ion-icon name="heart-outline"></ion-icon>
+      </div>
+      <div class="pay-icon">
+        <ion-icon name="play-skip-back"></ion-icon>
+        <ion-button (click)="togglePlayPause()">
+          <ion-icon class="play-circle" [name]="isPlaying ? 'play-circle' : 'pause-circle'"></ion-icon>
+        </ion-button>
+        <ion-icon name="play-skip-forward"></ion-icon>
+      </div>
+      <div class="another-music">
+        <ion-icon name="musical-notes-outline"></ion-icon>
+      </div>
+    </div>
   </ion-header>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>

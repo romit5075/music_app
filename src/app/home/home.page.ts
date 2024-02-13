@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { appData } from 'src/app/API/homeMusic';
+import { ArtistService } from '../Shared/api/artist.service';
 
 @Component({
   selector: 'app-home',
@@ -13,17 +15,21 @@ export class HomePage implements OnInit {
 
   openItemDetails(id: number) {
     console.log('id', id);
-    this.router.navigate(['home/allMusic', id]);
+    this.navCtrl.navigateForward(['home/allMusic', id]);
   }
 
-  constructor(private router: Router) {
+  navigateToOtherComponent() {
+    this.navCtrl.navigateForward(['/allPoster']);
+  }
+
+  constructor(private navCtrl: NavController, public ArtistService: ArtistService) {
+
   }
 
   ngOnInit() {
     this.items = appData;
+    // this.ArtistService.getArtists().subscribe((data) => {
+    //   console.log('data', data);
+    // });
   }
-  navigateToOtherComponent() {
-    this.router.navigate(['/allPoster']);
-  }
-
 }
