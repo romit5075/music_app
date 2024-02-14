@@ -27,7 +27,7 @@
 
     <!-- image -->
     <div class="main-image">
-      <ion-img src="{{item.image}}" alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
+      <ion-img src="{{item.image}}" alt="Wait For Image"></ion-img>
     </div>
     <div class="music-data">
       <ion-card-header>
@@ -47,22 +47,25 @@
       </div>
     </div>
     <div class="progress">
-      <ion-progress-bar [value]="progress"></ion-progress-bar>
+      <ion-range min="0" [max]="1000" [(ngModel)]="progress" (ionChange)="seekTo($event)">
+        <ion-icon range-left name="play-skip-back"></ion-icon>
+        <ion-icon range-right name="play-skip-forward"></ion-icon>
+      </ion-range>
     </div>
     <div class="time">
-      <ion-label>0:00</ion-label>
-      <ion-label>3:00</ion-label>
+      <ion-label>{{ formatTime(currentTime) }}</ion-label>
+      <ion-label>{{ formatTime(totalDuration) }}</ion-label>
     </div>
     <div class="play-model">
       <div class="wishlist">
         <ion-icon name="heart-outline"></ion-icon>
       </div>
       <div class="pay-icon">
-        <ion-icon name="play-skip-back"></ion-icon>
-        <ion-button (click)="togglePlayPause()">
-          <ion-icon class="play-circle" [name]="isPlaying ? 'play-circle' : 'pause-circle'"></ion-icon>
+        <ion-icon name="play-skip-back" (click)="skipPrevious()"></ion-icon>
+        <ion-button (click)="togglePlayPause(item.url)">
+          <ion-icon class="play-circle " [name]="isPlaying ? 'pause-circle' : 'play-circle'"></ion-icon>
         </ion-button>
-        <ion-icon name="play-skip-forward"></ion-icon>
+        <ion-icon name="play-skip-forward" (click)="skipNext()"></ion-icon>
       </div>
       <div class="another-music">
         <ion-icon name="musical-notes-outline"></ion-icon>
@@ -71,8 +74,8 @@
   </ion-header>
 </ion-content>
 
-<ion-footer>
+<!-- <ion-footer>
   <ion-toolbar>
     <ion-title>Footer</ion-title>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->
