@@ -1,14 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-      <ion-title>All Music</ion-title>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<!-- <ion-header [translucent]="true"> -->
+<ion-toolbar>
+  <div class="button">
+    <ion-button fill="clear" size="small"> <ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+    <ion-button fill="clear" size="small"> <ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+  </div>
+</ion-toolbar>
+
 
 <ion-content [fullscreen]="true">
   <ion-list>
+    <div class="top-poster">
+      <div class="poster">
+        <ion-img src="../../../assets/Images/6.jpeg" alt="Wait For Image"></ion-img>
+      </div>
+      <div class="poster-description">
+        <div class="poster-icon">
+          <!-- <div class="icon-container">
+            <ion-icon name="heart-outline"></ion-icon>
+          </div>
+          <div class="icon-container">
+            <ion-icon name="play-outline"></ion-icon>
+          </div> -->
+        </div>
+        <div>
+          <ion-card-header>
+            <ion-card-subtitle>This Songs are so crazy</ion-card-subtitle>
+            <ion-card-title>Hindi: Indian Top 50 Songs</ion-card-title>
+          </ion-card-header>
+        </div>
+      </div>
+    </div>
     <ion-item lines="none" *ngFor="let item of appData.music">
       <div class="container">
         <div class="description">

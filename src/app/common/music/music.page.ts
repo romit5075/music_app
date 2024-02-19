@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MenuController, NavController } from '@ionic/angular';
 import { appData } from '../../API/homeMusic';
 import { Howl, Howler } from 'howler';
+import { h } from 'ionicons/dist/types/stencil-public-runtime';
 
 @Component({
   selector: 'app-music',
@@ -12,6 +13,7 @@ import { Howl, Howler } from 'howler';
 
 export class MusicPage implements OnInit {
 
+  public allMusic: any;
   public currentIndex = 0; // Index of the current music item
   public singleMusic: any;
   public progress: number = 0;
@@ -19,7 +21,6 @@ export class MusicPage implements OnInit {
   public isPlaying = false;
   activeTrack: any = null;
   player: Howl | null = null;
-
 
   currentTime: number = 0;
   totalDuration: number = 0;
@@ -40,11 +41,11 @@ export class MusicPage implements OnInit {
         },
         onpause: () => {
           this.isPlaying = false;
-          this.stopProgressTimer();
+          this.startProgressTimer();
         },
         onstop: () => {
           this.isPlaying = false;
-          this.stopProgressTimer();
+          this.startProgressTimer();
         }
       });
     }
@@ -61,18 +62,13 @@ export class MusicPage implements OnInit {
       if (this.player && this.player.playing()) {
         const currentTimeInSeconds = this.player.seek();
         const totalDurationInSeconds = this.player.duration();
-        this.progress = (currentTimeInSeconds || 0) / totalDurationInSeconds * 1;
+        this.progress = (currentTimeInSeconds || 0) / totalDurationInSeconds * 100; // Update progress in percentage
 
         // Update current time and total duration
         this.currentTime = currentTimeInSeconds;
         this.totalDuration = totalDurationInSeconds;
       }
-    }, 100);
-  }
-
-
-  stopProgressTimer() {
-    clearInterval(this.progressInterval);
+    }, 1000); // Update progress every second
   }
 
   formatTime(timeInSeconds: number): string {
@@ -89,15 +85,18 @@ export class MusicPage implements OnInit {
   closePage() {
     this.navCtrl.back();
   }
+
   skipNext() {
-    this.currentIndex = (this.currentIndex + 1) % this.singleMusic.length;
-    const nextTrackUrl = this.singleMusic.music[this.currentIndex].url;
+
+    this.currentIndex = (this.currentIndex + 1) % this.allMusic.length;
+    const nextTrackUrl = this.allMusic[this.currentIndex].url;
     this.togglePlayPause(nextTrackUrl);
   }
 
   skipPrevious() {
-    this.currentIndex = (this.currentIndex - 1 + this.singleMusic.length) % this.singleMusic.music.length;
-    const previousTrackUrl = this.singleMusic.music[this.currentIndex].url;
+    console.log(this.currentIndex)
+    this.currentIndex = (this.currentIndex - 1 + this.singleMusic.length) % this.allMusic.length;
+    const previousTrackUrl = this.allMusic[this.currentIndex].url;
     this.togglePlayPause(previousTrackUrl);
   }
 
@@ -110,13 +109,12 @@ export class MusicPage implements OnInit {
   seekTo(event: any) {
     const newValue = event.detail.value as number;
     const duration = this.player ? this.player.duration() : 0;
-    const seekTime = duration * (newValue / 1000); // Convert progress value to seconds
+    const seekTime = (duration * newValue) / 100; // Correct calculation for progress in seconds
     if (this.player) {
       this.player.seek(seekTime); // Seek to the specified time in the song
       this.progress = newValue; // Update the progress variable
     }
   }
-
 
   constructor(private navCtrl: NavController, private menuCtrl: MenuController, private route: ActivatedRoute) { }
 
@@ -126,12 +124,12 @@ export class MusicPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       const musicData = params['musicDataKey'];
       const id = this.route.snapshot.params['id'];
-
       const parsedMusicData = typeof musicData === 'string' ? JSON.parse(musicData) : musicData;
+      this.allMusic = parsedMusicData;
 
       // Filter the music data array to find the matching music items
       this.singleMusic = parsedMusicData.filter((element: any) => element.mid === id);
-      this.currentIndex = parsedMusicData.findIndex((item: any) => item.id === id);
+      this.currentIndex = parsedMusicData.findIndex((item: any) => item.mid === id);
     });
   }
 }

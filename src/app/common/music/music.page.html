@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="progress">
-      <ion-range min="0" [max]="1000" [(ngModel)]="progress" (ionChange)="seekTo($event)">
+      <ion-range min="0" [max]="100" [(ngModel)]="progress" (ionChange)="seekTo($event)">
         <ion-icon range-left name="play-skip-back"></ion-icon>
         <ion-icon range-right name="play-skip-forward"></ion-icon>
       </ion-range>

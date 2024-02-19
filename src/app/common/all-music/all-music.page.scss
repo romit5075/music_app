@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   // align-items: center;
-  width: 100%;
+  width: 85%;
 }
 
 .description {
@@ -19,23 +19,11 @@
   // padding: 1rem 0 0 0;
 
   ion-button {
-
     --border-radius: 0;
     --box-shadow: none;
     --color: #807c7c;
-    --padding-end: 0;
-    --padding-start: 0;
-    --padding-top: 0;
-    --padding-bottom: 0;
-    --min-width: 0;
-    --min-height: 0;
-    --background-activated: #f4f4f4;
-    --background-focused: #f4f4f4;
-    --background-hover: #f4f4f4;
-    margin: 0;
   }
 }
-
 
 .button-icon ion-icon {
   font-size: 1.9rem;
@@ -55,4 +43,77 @@
 
 ion-item {
   background-color: aliceblue;
+}
+
+.top-poster {
+  background: rgb(33, 32, 32);
+  background: linear-gradient(0deg, rgba(33, 32, 32, 1) 0%, rgba(232, 163, 0, 1) 96%);
+  border: none;
+}
+
+.poster {
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-between;
+  // width: 100%;
+
+
+  ion-img {
+    width: 60%;
+    height: 15rem;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10%;
+  }
+
+  ion-icon {
+    font-size: 3rem;
+    background-color: #555555;
+    border-radius: 100%;
+    opacity: 0.5;
+  }
+}
+
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+ion-toolbar {
+  --background: rgba(232, 163, 0, 1);
+  --color: white;
+  --border-width: 0;
+
+  ion-icon {
+    font-size: 3rem;
+    background-color: #555555;
+    border-radius: 100%;
+    opacity: 0.5;
+  }
+}
+
+
+
+.poster-description {
+
+  .poster-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 1rem 2rem 0 1rem;
+
+    ion-icon {
+      width: 3rem;
+      height: 3rem;
+      font-size: 1rem;
+      background-color: #555555;
+      border-radius: 100%;
+      opacity: 0.5;
+    }
+
+  }
 }
