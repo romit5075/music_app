@@ -96,7 +96,7 @@ ion-toolbar {
   --background: rgba(232, 163, 0, 1);
   --color: white;
   --border-width: 0;
-  display: none;
+  // display: none;
 
   ion-icon {
     font-size: 3rem;
@@ -122,4 +122,9 @@ ion-toolbar {
       opacity: 0.5;
     }
   }
+}
+
+ion-back-button {
+  // --background: transparent;
+  // --color: transparent;
 }

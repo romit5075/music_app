@@ -18,6 +18,9 @@ export class AllMusicPage implements OnInit {
       queryParams: { musicDataKey: JSON.stringify(this.originMusic) }
     });
   }
+  onback() {
+    this.navCtrl.pop();
+  }
 
   constructor(private navCtrl: NavController, private route: ActivatedRoute) { }
 

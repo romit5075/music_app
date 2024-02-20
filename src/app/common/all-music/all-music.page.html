@@ -1,11 +1,11 @@
 <!-- <ion-header [translucent]="true"> -->
-<ion-toolbar>
+
+<!-- <ion-toolbar>
   <div class="button">
-    <ion-button fill="clear" size="small" defaultHref="/"> <ion-icon
-        name="chevron-back-outline"></ion-icon></ion-button>
+    <ion-button fill="clear" size="small"> <ion-icon name="chevron-back-outline"></ion-icon></ion-button>
     <ion-button fill="clear" size="small"> <ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
   </div>
-</ion-toolbar>
+</ion-toolbar> -->
 
 
 <ion-content [fullscreen]="true">
@@ -13,7 +13,8 @@
     <div class="top-poster">
       <div class="poster">
         <div class="button">
-          <ion-button fill="clear" size="small" defaultHref="/"> <ion-icon
+
+          <ion-button fill="clear" size="small" (click)="onback()"> <ion-icon
               name="chevron-back-outline"></ion-icon></ion-button>
           <ion-img src="../../../assets/Images/6.jpeg" alt="Wait For Image"></ion-img>
           <ion-button fill="clear" size="small"> <ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
