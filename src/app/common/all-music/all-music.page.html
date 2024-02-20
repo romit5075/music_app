@@ -1,7 +1,8 @@
 <!-- <ion-header [translucent]="true"> -->
 <ion-toolbar>
   <div class="button">
-    <ion-button fill="clear" size="small"> <ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+    <ion-button fill="clear" size="small" defaultHref="/"> <ion-icon
+        name="chevron-back-outline"></ion-icon></ion-button>
     <ion-button fill="clear" size="small"> <ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
   </div>
 </ion-toolbar>
@@ -11,7 +12,12 @@
   <ion-list>
     <div class="top-poster">
       <div class="poster">
-        <ion-img src="../../../assets/Images/6.jpeg" alt="Wait For Image"></ion-img>
+        <div class="button">
+          <ion-button fill="clear" size="small" defaultHref="/"> <ion-icon
+              name="chevron-back-outline"></ion-icon></ion-button>
+          <ion-img src="../../../assets/Images/6.jpeg" alt="Wait For Image"></ion-img>
+          <ion-button fill="clear" size="small"> <ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+        </div>
       </div>
       <div class="poster-description">
         <div class="poster-icon">
@@ -22,7 +28,7 @@
             <ion-icon name="play-outline"></ion-icon>
           </div> -->
         </div>
-        <div>
+        <div class="info">
           <ion-card-header>
             <ion-card-subtitle>This Songs are so crazy</ion-card-subtitle>
             <ion-card-title>Hindi: Indian Top 50 Songs</ion-card-title>
